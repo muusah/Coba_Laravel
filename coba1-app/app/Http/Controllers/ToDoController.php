@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use App\Models\Todo;
-// use Illuminate\Support\Facades\Date;
+use App\Models\Todo;
+use Illuminate\Support\Facades\Date;
 
 class ToDoController extends Controller
 {
