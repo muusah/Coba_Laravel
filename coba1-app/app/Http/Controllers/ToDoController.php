@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// use App\Models\Todo;
+// use Illuminate\Support\Facades\Date;
 
 class ToDoController extends Controller
 {
@@ -13,7 +15,9 @@ class ToDoController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $todo = Todo::all();
+
+        return view('index', ["todos" => $todo]);
     }
 
     /**
@@ -34,7 +38,17 @@ class ToDoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'title' => 'required|min:10',
+            'description' => 'required',
+        ]);
+
+        $todo = new Todo();
+        $todo->title = $request->title;
+        $todo->description = $request->description;
+        $todo->save();
+
+        return redirect()->route('index');
     }
 
     /**
@@ -43,9 +57,18 @@ class ToDoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function done($id)
     {
-        //
+        $todo = Todo::find($id);
+
+        if (!$todo) {
+            return redirect()->back()->with('error', "Todo Not found!");
+        }
+
+        $todo->done_at = date('Y-m-d H:i:s');
+        $todo->save();
+
+        return redirect()->route('index')->with('success', "Successfully finish todo!");
     }
 
     /**
@@ -56,7 +79,15 @@ class ToDoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $todo = Todo::find($id);
+
+        if (!$todo) {
+            return redirect()->back()->with('error', "Todo Not found!");
+        }
+
+        return view('edit', [
+            "todo" => $todo
+        ]);
     }
 
     /**
@@ -68,7 +99,17 @@ class ToDoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $todo = Todo::find($id);
+
+        if (!$todo) {
+            return redirect()->back()->with('error', "Todo Not found!");
+        }
+
+        $todo->title = $request->title;
+        $todo->description = $request->description;
+        $todo->save();
+
+        return redirect()->route('index')->with('success', "Successfully update todo!");
     }
 
     /**
@@ -79,6 +120,14 @@ class ToDoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $todo = Todo::find($id);
+
+        if (!$todo) {
+            return redirect()->back()->with('error', "Todo Not found!");
+        }
+
+        $todo->delete();
+
+        return redirect()->route('index')->with('success', "Successfully delete todo!");
     }
 }

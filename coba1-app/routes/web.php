@@ -22,3 +22,7 @@ Route::get('/', function () {
 Route::get('/hello', [HelloController::class, 'index']);
 Route::get('/todo', [TodoController::class, 'index']);
 Route::get('/todo/create', [TodoController::class, 'create']);
+Route::get('/todo/{id}', [TodoController::class, 'edit'])->name('edit');
+Route::get('/todo/{id}/done', [TodoController::class, 'done'])->name('done');
+Route::put('/todo/{id}', [TodoController::class, 'update'])->name('update');
+Route::delete('/todo/{id}', [TodoController::class, 'destroy'])->name('destroy');
