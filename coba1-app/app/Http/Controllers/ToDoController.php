@@ -4,25 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HelloController extends Controller
+class ToDoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request) 
+    public function index()
     {
-    $name = $request->input('name');
-
-    if (!$name) {
-        $name = "World";
+        return view('index');
     }
-
-    return view('hello', [
-        "name" => $name
-    ]);
-}
 
     /**
      * Show the form for creating a new resource.
@@ -31,7 +23,7 @@ class HelloController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
