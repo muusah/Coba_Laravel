@@ -9,4 +9,4 @@
 
 <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
 
-<title>My App - @yield('title')</title>
+<title>Laravel Exercise @yield('title')</title>

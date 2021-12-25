@@ -22,9 +22,9 @@
     </head>
     <body class="antialiased">
     <div class="container">
-    <h1 class="mt-5 ">Welcome to Belajar Bareng Hudya</h1>
-    <p class="lead mb-5">Which is more difficult, coding or counting? Not both of them, the difficult one is sharing your knowledge with people without asking for the payment. <br/> <small>- Hudya</small></p>
-    <p>Kunjungi blog belajar bareng Hudya dengan akses gratis <a href="https://hudya.xyz ">disini</a>.</p>
+    <h1 class="mt-5 ">Welcome to Laravel Learning</h1>
+    <p class="lead mb-5">Which is more difficult, coding or counting? Not both of them, the difficult one is sharing your knowledge with people without asking for the payment. <br/> <small>- 3SC6</small></p>
+    <p>Visit the laravel learning blog with free access <a href="https://hudya.xyz ">Here!</a>.</p>
 </div>
         <!-- <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
