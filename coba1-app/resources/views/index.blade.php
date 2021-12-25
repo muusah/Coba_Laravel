@@ -3,6 +3,7 @@
 <div class="container mt-5">
     <div class="row mb-4">
         <div class="col-12">
+            <h1 class="mb-4">Howdy, {{ Session::get('name') }}!</h1>
             <h5 class="mb-4">Todo List</h5>
 
             @if (session('success'))
