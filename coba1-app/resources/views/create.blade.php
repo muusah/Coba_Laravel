@@ -21,7 +21,7 @@
                 <div class="form-group">
                     <label for="example-todo-title">Write to-do Title</label>
                     <input value="{{ old('title') }}" name="title" type="text" class="form-control" id="example-todo-title" aria-describedby="emailHelp" placeholder="Enter to-do title" required>
-                    <small id="emailHelp" class="form-text text-muted">The to-do title must contain at least 5 characters.</small>
+                    <small id="emailHelp" class="form-text text-muted">The to-do title must contain at least 10 characters.</small>
                 </div>
 
                 <div class="form-group">
